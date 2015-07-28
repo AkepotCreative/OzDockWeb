@@ -1,5 +1,5 @@
 version: 0.0
 os: linux
 files:
-  - source: .\ozdock.com
+  - source: ozdock.com
     destination: /var/www/ozdock.com
