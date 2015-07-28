@@ -1,0 +1,5 @@
+version: 0.1
+os: linux
+files:
+  - source: .\ozdock.com
+    destination: /var/www/html/ozdock.com
