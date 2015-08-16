@@ -209,21 +209,22 @@ function PostTweet(tweet) {
     }
 
     // check if Tweets content is scrolled
-    var currentscroll = $("#Tweets").scrollTop();
+    var currentscroll = $('#Tweets').scrollTop();
+    var $Tweet = $(tweethtml);
 
     // add to page
-    $('#Tweets').prepend(tweethtml);
+    $('#Tweets').prepend($Tweet);
 
     // add tweetid to array
     tweets.push(tweetid);
 
     // if the scroll wasn't top, move to account for added content
-    if (currentscroll > 0) {
-        $("#Tweets").scrollTop(currentscroll + $("#" + tweetid).height() + 5);
+    if (currentscroll > 2) {
+        $('#Tweets').scrollTop(currentscroll + $Tweet.outerHeight() + 14); // trial and error 14. figure out where the extra 14px are coming from
     }
-
-
-    console.debug(currentscroll + ", " + $("#" + tweetid).height());
+    else {
+        $('#Tweets').scrollTop(0);
+    }
 
     // Clean up the coords
     var coords = tweet.coordinates;
