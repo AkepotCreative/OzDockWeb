@@ -35,7 +35,7 @@ html, body {
 
 #ModalMessage {
     width: 50%;
-    min-width: 200px;
+    min-width: 300px;
     max-width: 400px;
     min-height: 200px;
     max-height: 400px;
@@ -246,10 +246,178 @@ html, body {
     margin-bottom: -40px;
 }
 
+/* Mobile Styling */
+#MobileHeader, .MobileTweet {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    left: 0;
+    user-select: none;
+}
+#MobileHeader {
+    color: white;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 6;
+    background-color: black;
+    position: fixed;
+}
+
+#MobileSearchBox {
+    position: relative;
+    float: left;
+    left: 10px;
+    top: 12px;
+    height: 30px;
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    background-image: url("images/search-icon.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 40px;
+    font-family: 'Century Gothic';
+    font-size: 16px;
+}
+
+#MobileTemperature {
+    position: relative;
+    float: right;
+    top: 3px;
+    right: 50px;
+    font-size: 30pt;
+    color: grey;
+}
+
+#MobileTweets {
+    height: 270px;  /* Change in functions.js  also */
+    top: 60px;
+    left: 0px;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    background-color: hsla(0, 0%, 0%, 0.82);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: none;
+}
+
+#MobileTweets a {
+    /*text-decoration: none;*/
+    color: white;
+}
+
+.MobileTweet {
+    position: relative;
+    color: white;
+    width: 100%;
+    height: 265px;
+    z-index: 7;
+    top: 0px;
+    left: 0px;
+}
+
+.MobileTweetContent {
+    color: white;
+    height: 260px;
+    width: calc(100% - 90px);
+    top: 10px;
+    left: 7px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-right: 5px;
+}
+
+.MobileTweetActions {
+    height: 250px;
+}
+.MobileTweetActions img {
+    position: relative;
+    left: 20px;
+    top: 15px;
+    width: 50px;
+}
+
+.MobileTweetProfileImage img {
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    width: 50px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.MobileTweetUser {
+    position: relative;
+    top: -35px;
+    left: 60px;
+    color: darkgrey;
+    font-size: 18px;
+}
+
+.MobileTweetText {
+    position: relative;
+    top: -20px;
+    left: 10px;
+    font-size: 19px;
+}
+
+.MobileTweetTime, .MobileTweetApp {
+    position: relative;
+    left: 0;
+    color: darkgrey;
+    font-size: 16px;
+    text-align: right;
+    width: calc(100% - 5px);
+}
+
+.MobileTweetData {
+    height: 200px;
+    width: calc(100% - 10px);
+}
 
 /*   Media Queries
     */
-@media(max-width:767px){}
+@media(max-width:767px){
+    #HeaderAd {
+        display: none;
+    }
+    #FooterAd {
+        display: none;
+    }
+    #SearchBar {
+        display: none;
+    }
+    #ContentLeft {
+        display: none;
+    }
+    #MobileHeader, #MobileTweets, .MobileTweet {
+        display: block;
+    }
+    #GoogleMap {
+        width: 100%;
+        height: calc(100% - 60px);
+        top: 60px;
+        left: 0;
+    }
+    #ModalMessage {
+
+    }
+}
 @media(min-width:768px){}
 @media(min-width:992px){}
 @media(min-width:1200px){}
