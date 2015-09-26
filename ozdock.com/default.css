@@ -297,7 +297,7 @@ html, body {
 }
 
 #MobileTweets {
-    height: 270px;  /* Change in functions.js  also */
+    height: 255px;  /* Change in functions.js  also */
     top: 60px;
     left: 0px;
     position: absolute;
@@ -324,7 +324,7 @@ html, body {
     position: relative;
     color: white;
     width: 100%;
-    height: 265px;
+    height: 245px;
     z-index: 7;
     top: 0px;
     left: 0px;
@@ -332,24 +332,14 @@ html, body {
 
 .MobileTweetContent {
     color: white;
-    height: 260px;
-    width: calc(100% - 90px);
+    height: 230px;
+    width: calc(100% - 10px);
     top: 10px;
     left: 7px;
     float: left;
     position: relative;
     overflow: hidden;
     margin-right: 5px;
-}
-
-.MobileTweetActions {
-    height: 250px;
-}
-.MobileTweetActions img {
-    position: relative;
-    left: 20px;
-    top: 15px;
-    width: 50px;
 }
 
 .MobileTweetProfileImage img {

@@ -8,6 +8,7 @@ var lockmap; // Lock the map to specific location
 var markers = new Array(); // Array to store map markers
 var tweets = new Array(); // Array to store listed tweets
 var IsMobile;
+var DefaultMobileTweetHeight;
 
 // Default settings
 var DISPLAYMAXTWEETS = 20;
@@ -34,10 +35,6 @@ var MobileTweetTemplate = '<div id="{ID}" class="MobileTweet">'
                 + '<div class="MobileTweetTime">{TIME}</div>'
                 + '<div class="MobileTweetApp">{APP}</div>'
                 + '</div>'
-                + '</div>'
-                + '<div class="MobileTweetActions">'
-                + '<br /><br /><br /><br /><br />'
-                + '<br />'
                 + '</div>'
                 + '</div>';
 
@@ -69,6 +66,8 @@ $(document).ready(function () {
         browsererror();
         return;
     }
+
+    DefaultMobileTweetHeight = $("#MobileTweets").css('height');
 });
 
 $(window).on('beforeunload', function () {
@@ -416,27 +415,14 @@ function MobilePostTweet(tweet) {
     // marker clicked
     google.maps.event.addListener(marker, 'click', function () {
         var curmarker = this; // save marker to variable because setTimeout overrides this
-        $("#MobileTweets").animate({
-            height: "270px"
-        }, 300, function () {
-            $("#MobileTweets").scrollTop(0);
-            $("#MobileTweets").getNiceScroll().remove();
-            $("#MobileTweets").css("display", "block");
-        });
-        setTimeout(function () { // run this after 4 seconds
-            curmarker.setAnimation(null);
-        }, 4000);
+        var tweetpos = $("#" + tweet.tweetid).position().top;
+        $("#MobileTweets").scrollTop(tweetpos);
     });
 
     // zoom to new tweet if not locked
     if (!lockmap) {
         map.panTo(marker.getPosition());
     }
-    // bounce map marker for 2 seconds
-    //marker.setAnimation(google.maps.Animation.BOUNCE);
-    //setTimeout(function () {
-    //    marker.setAnimation(null);
-    //}, 2000);
 
     // add to array
     markers.push(marker);
